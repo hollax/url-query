@@ -1,0 +1,11 @@
+{
+  "name": "ray-encode-data",
+  "version": "1.0.0",
+  "description": "Encode data as url string",
+  "main": "index.js",
+  "scripts": {
+     "test": "mocha --compilers js:babel-core/register tests"
+  },
+  "author": "Wakeel Ogunsanya",
+  "license": "ISC"
+}
