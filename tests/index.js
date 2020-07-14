@@ -6,15 +6,14 @@
 
 
 
-var assert = require('assert');
-
-import encode from './../index.js';
+require('mocha');
+var {expect} = require('chai');
+let encode = require('./../index.js');
 
 
 
 describe('encode', function () {
-
-    describe('setup', function () {
-        assert.equal(1, 1)
+    it('pass test', function(){
+        expect(1).to.eq(1);
     });
 });
