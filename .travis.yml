@@ -1,2 +1,4 @@
 language: javascript
+node_js:
+  - 7
 script: npm test
