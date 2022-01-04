@@ -1,5 +1,5 @@
 {
-  "name": "ray-encode-data",
+  "name": "@hollax/url-query",
   "version": "1.0.0",
   "description": "Encode data as url string",
   "main": "index.js",
