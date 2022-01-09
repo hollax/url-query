@@ -4,11 +4,8 @@
  * and open the template in the editor.
  */
 
-
-
 var {expect} = require('chai');
 let query = require('./../index.js');
-
 
 
 describe('query', function () {
