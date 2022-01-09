@@ -1,23 +1,31 @@
-var encode = function (data, encoded, base) {
-	var encoded = encoded || [];
-	
-    for (var key in data) {
-        var val = data[key];
 
-        var isObject = val &&  typeof val === 'object' ;
-        
+var query = function(data){
 
-        if (isObject) {
-			var k = base? base+'['+key+']' : key;
-            encode(val, encoded, k);
-        } else {
-            var _val = encodeURIComponent(val)
-            var query = base ? base + '[' + key + ']=' + _val : key + '=' + _val;
-            encoded.push(query);
+    function generate(data, formatedStr = [], _base) {
+        var dataType = typeof data;
+
+        if(dataType === 'string' || dataType === 'number'){
+            return data;
         }
+        for (var key in data) {
+            var val = data[key];
+    
+            var isObject = val &&  typeof val === 'object' ;
+            
+            if (isObject) {
+                var k = _base? _base+'['+key+']' : key;
+                generate(val, formatedStr, k);
+            } else {
+                var _val = encodeURIComponent(val);
+                var query = _base ? _base + '[' + key + ']=' + _val : key + '=' + _val;
+                formatedStr.push(query);
+            }
+        }
+    
+        return formatedStr.join('&');
     }
 
-    return encoded.join('&');
-}
+    return generate(data);
+};
 
-module.exports = encode;
+module.exports = query;
